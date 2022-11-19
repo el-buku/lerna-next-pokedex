@@ -8,7 +8,9 @@
   "scripts": {
       "build": "lerna run build --stream",
       "lint": "lerna run lint --stream --parallel",
-      "test": "yarn jest --coverage"
+      "test": "yarn jest --coverage",
+      "start:pokedex":"lerna run start --scope pokedex",
+      "dev:pokedex":"lerna run dev --scope pokedex"
   },
   "devDependencies": {
     "eslint": "^8.27.0",
