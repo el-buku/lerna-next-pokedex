@@ -10,6 +10,7 @@
       "lint": "lerna run lint --stream --parallel",
       "test": "yarn jest --coverage",
       "start:pokedex":"lerna run start --scope pokedex",
+      "start:storybook":"lerna run start --scope storybook",
       "dev:pokedex":"lerna run dev --scope pokedex"
   },
   "devDependencies": {
