@@ -12,6 +12,7 @@
       "clean": "rimraf lib",
       "prepack": "yarn build",
       "build": "yarn clean && yarn lint && yarn compile",
+      "dev":"tsc --watch",
       "compile": "tsc && cp \"./package.json\" ./lib/",
       "lint": "eslint \"./src/**/*.{ts,tsx}\" --max-warnings=0",
       "lint:fix": "eslint \"./src/**/*.{ts,tsx}\" --max-warnings=0 --fix"

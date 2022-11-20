@@ -13,6 +13,7 @@
     "prepack": "yarn build",
     "build": "yarn clean && yarn lint && yarn compile",
     "compile": "tsc && cp \"./package.json\" ./lib/",
+    "dev":"tsc --watch",
     "lint": "eslint \"./src/**/*.{ts,tsx}\" --max-warnings=0",
     "lint:fix": "eslint \"./src/**/*.{ts,tsx}\" --max-warnings=0 --fix"
   },
