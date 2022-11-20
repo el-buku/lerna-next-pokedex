@@ -9,6 +9,7 @@
       "build": "lerna run build --stream",
       "lint": "lerna run lint --stream --parallel",
       "test": "yarn jest --coverage",
+      "dev":"lerna run dev --parallel",
       "start:pokedex":"lerna run start --scope pokedex",
       "start:storybook":"lerna run start --scope storybook",
       "dev:pokedex":"lerna run dev --scope pokedex"

@@ -1,1 +1,1 @@
-export const Logger = () => console.log("logger");
+export * from './store';
