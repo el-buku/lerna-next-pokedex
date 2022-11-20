@@ -9,7 +9,7 @@
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {
-    "clean": "rimraf lib",
+    "clean": "rimraf lib node_modules",
     "prepack": "yarn build",
     "build": "yarn clean && yarn lint && yarn compile",
     "dev": "tsc --watch",
