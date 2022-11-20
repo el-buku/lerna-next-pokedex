@@ -1,8 +1,8 @@
 {
   "name": "pokedex",
   "version": "0.1.0",
-  "private": true,
   "type": "module",
+  "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -11,12 +11,13 @@
     "clean": "rimraf node_modules"
   },
   "dependencies": {
+    "@emotion/server": "^11.10.0",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",
     "eslint": "8.28.0",
     "eslint-config-next": "13.0.4",
-    "next": "13.0.4",
+    "next": "^13.0.4",
     "pokedex-components": "0.1.0",
     "pokedex-utils": "0.1.0",
     "react": "18.2.0",
