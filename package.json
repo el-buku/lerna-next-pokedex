@@ -9,7 +9,7 @@
     "build": "lerna run build --stream",
     "lint": "lerna run lint --stream --parallel",
     "test": "yarn jest --coverage",
-    "dev": "lerna run build --scope=pokedex-components --scope=pokedex-utils && lerna run dev --parallel",
+    "dev": "lerna run build --scope=pokedex-components --scope=pokedex-utils && lerna run dev --parallel --include-dependencies",
     "clean":"rimraf node_modules && lerna run clean",
     "start:pokedex": "lerna run start --scope pokedex",
     "start:storybook": "lerna run start --scope storybook",

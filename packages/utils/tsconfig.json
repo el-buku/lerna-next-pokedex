@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "outDir": "./lib",
-    "module": "esnext",
+    "module": "CommonJS",
     "target": "es5",
     "lib": ["es6", "dom"],
     "sourceMap": true,
@@ -20,7 +20,8 @@
     "noUnusedLocals": true,
     "declaration": true,
     "declarationMap": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
   },
   "exclude": ["lib", "node_modules"]
 }
