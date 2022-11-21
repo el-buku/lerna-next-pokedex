@@ -1,11 +1,17 @@
 import * as React from "react";
-import Document, { Html, Head, Main, NextScript } from "next/document";
+import Document, {
+  Html,
+  Head,
+  Main,
+  NextScript,
+  DocumentContext,
+} from "next/document";
 import { default as createEmotionServer } from "@emotion/server/create-instance";
 import { theme, createEmotionCache } from "pokedex-components";
 
 // See https://github.com/mui/material-ui/blob/master/examples/nextjs-with-typescript/pages/_document.tsx
 export default class AppDocument extends Document {
-  async getInitialProps(ctx) {
+  static async getInitialProps(ctx: DocumentContext) {
     const originalRenderPage = ctx.renderPage;
 
     const cache = createEmotionCache();

@@ -6,17 +6,21 @@
     "apps/*"
   ],
   "scripts": {
-      "build": "lerna run build --stream",
-      "lint": "lerna run lint --stream --parallel",
-      "test": "yarn jest --coverage",
-      "dev":"lerna run dev --parallel",
-      "start:pokedex":"lerna run start --scope pokedex",
-      "start:storybook":"lerna run start --scope storybook",
-      "dev:pokedex":"lerna run dev --scope pokedex"
+    "build": "lerna run build --stream",
+    "lint": "lerna run lint --stream --parallel",
+    "test": "yarn jest --coverage",
+    "dev": "lerna run dev --parallel",
+    "clean":"rimraf node_modules && lerna run clean",
+    "start:pokedex": "lerna run start --scope pokedex",
+    "start:storybook": "lerna run start --scope storybook",
+    "dev:pokedex": "lerna run dev --scope pokedex"
   },
   "devDependencies": {
     "eslint": "^8.27.0",
     "lerna": "^6.0.3",
-    "typescript": "^4.9.3"
+    "typescript": "^4.9.3",
+    "rimraf": "^3.0.2"
+  },
+  "dependencies": {
   }
 }

@@ -7,3 +7,5 @@ export const theme = createTheme({
     },
   },
 });
+
+export { default as createEmotionCache } from "./createEmotionCache";

@@ -11,7 +11,7 @@
   "scripts": {
     "clean": "rimraf lib node_modules",
     "prepack": "yarn build",
-    "build": "yarn clean && yarn lint && yarn compile",
+    "build": "yarn lint && yarn compile",
     "dev": "tsc --watch",
     "compile": "tsc && cp \"./package.json\" ./lib/",
     "lint": "eslint \"./src/**/*.{ts,tsx}\" --max-warnings=0",

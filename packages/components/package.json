@@ -2,7 +2,6 @@
   "name": "pokedex-components",
   "version": "0.1.0",
   "private": false,
-  "type": "module",
   "files": [
     "lib"
   ],
@@ -11,7 +10,7 @@
   "scripts": {
     "clean": "rimraf lib node_modules",
     "prepack": "yarn build",
-    "build": "yarn clean && yarn lint && yarn compile",
+    "build": "yarn lint && yarn compile",
     "compile": "tsc && cp \"./package.json\" ./lib/",
     "dev": "tsc --watch",
     "lint": "eslint \"./src/**/*.{ts,tsx}\" --max-warnings=0",
