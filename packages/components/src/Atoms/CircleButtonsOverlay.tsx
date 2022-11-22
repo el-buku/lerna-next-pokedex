@@ -55,9 +55,9 @@ export default function CirclesOverlay() {
       `}
     >
       <CircleButton
-        borderColor="white"
-        backgroundColor="blue"
-        lightColor="white"
+        borderColor="#dce1e75c"
+        backgroundColor="#3298cb"
+        lightColor="#85bdfe"
         size={100}
       />
       <div
@@ -72,9 +72,9 @@ export default function CirclesOverlay() {
           `}
         >
           <CircleButton
-            borderColor="white"
-            backgroundColor="blue"
-            lightColor="white"
+            borderColor="#ffffff63"
+            backgroundColor="#ff0000"
+            lightColor="#fe98cb"
             size={50}
           />
         </div>
@@ -84,9 +84,9 @@ export default function CirclesOverlay() {
           `}
         >
           <CircleButton
-            borderColor="white"
-            backgroundColor="blue"
-            lightColor="white"
+            borderColor="#ffffff63"
+            backgroundColor="#fecb65"
+            lightColor="#fefecb"
             size={50}
           />
         </div>
@@ -96,9 +96,9 @@ export default function CirclesOverlay() {
           `}
         >
           <CircleButton
-            borderColor="white"
-            backgroundColor="blue"
-            lightColor="white"
+            borderColor="#ffffff63"
+            backgroundColor="#32cb65"
+            lightColor="#98fe00"
             size={50}
           />
         </div>

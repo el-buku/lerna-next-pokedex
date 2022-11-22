@@ -10,7 +10,7 @@ export default function PolyLine() {
     >
       <polyline
         points="0,80 100,80 150,28 3000,28"
-        style={{ fill: "none", stroke: "white", strokeWidth: 3 }}
+        style={{ fill: "none", stroke: "#ffffff73", strokeWidth: 3.5 }}
       />
     </svg>
   );

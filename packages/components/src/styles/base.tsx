@@ -10,6 +10,10 @@ export const AlignCenter = css`
   align-items: center;
 `;
 
+export const Relative = css`
+  position: relative;
+`;
+
 export const TextCenter = css`
   text-align: center;
 `;
