@@ -15,7 +15,9 @@
     "@storybook/testing-library": "^0.0.13",
     "babel-loader": "^8.3.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@emotion/babel-preset-css-prop": "^11.10.0"
+  },
   "scripts": {
     "start": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
