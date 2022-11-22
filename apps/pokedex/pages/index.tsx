@@ -45,8 +45,7 @@ export default function Home() {
       <Header />
       <div
         style={{
-          width: 500,
-          height: (perPage < 60 && "60vh") || "90vh",
+          height: "100%",
           margin: "auto",
         }}
       >
