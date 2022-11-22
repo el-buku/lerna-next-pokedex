@@ -6,7 +6,8 @@ export default function Spinner() {
     <>
       <style>
         {`.pokeball {
-        position: relative;
+        margin: auto;
+        position:relative;
         width: 200px;
         height: 200px;
         background: #fff;
@@ -14,8 +15,7 @@ export default function Spinner() {
         border-radius: 50%;
         overflow: hidden;
         box-shadow: inset -10px 10px 0 10px #ccc;
-        animation: fall .25s ease-in-out,
-        shake 3s cubic-bezier(.36,.07,.19,.97) 3;
+        animation: ease-in-out, shake 3s cubic-bezier(.36,.07,.19,.97) 3;
         }
         .pokeball::before,
         .pokeball::after {

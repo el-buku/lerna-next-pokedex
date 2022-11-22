@@ -5,5 +5,6 @@ export {
   DataGridProps,
 } from "./DataGrid";
 export { default as PokemonCard } from "./PokemonCard";
+export * from "./Atoms";
 export * from "./styles";
 export * from "./theme";

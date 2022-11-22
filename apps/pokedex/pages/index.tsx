@@ -9,6 +9,7 @@ import {
   Styles,
   InnerGridStyles,
   PokemonCard,
+  Spinner,
 } from "pokedex-components";
 import {
   wrapper,
@@ -82,7 +83,7 @@ export default function Home() {
               getRowId: (row: any) => row.name,
               sx: InnerGridStyles,
               disableVirtualization: true,
-              components: { Row: PokemonCardRow },
+              components: { Row: PokemonCardRow, LoadingOverlay: Spinner },
             },
           }}
         />
