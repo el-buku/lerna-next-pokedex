@@ -30,7 +30,18 @@ const PokemonCardRow = (rowData: any) => {
   const {
     row: { name },
   } = rowData;
-  return <PokemonCard name={name}></PokemonCard>;
+  const router = useRouter();
+  const pokemonPath = `/${name}`;
+  useEffect(() => {
+    router.prefetch(pokemonPath);
+  }, []);
+
+  return (
+    <PokemonCard
+      name={name}
+      onClick={() => router.push(pokemonPath)}
+    ></PokemonCard>
+  );
 };
 
 const LoadingOverlay = () => {
@@ -56,15 +67,16 @@ const PER_PAGE = 35;
 export default function Home() {
   const router = useRouter();
   const { query } = router;
-  const parsedPageIndex = parseInt((query.page as any) || 0);
-
-  const [page, setPage] = useState(
-    (parsedPageIndex !== NaN && parsedPageIndex >= 0 && parsedPageIndex) || 0
-  );
+  const [page, setPage] = useState(0);
   const perPage = PER_PAGE;
+  useEffect(() => {
+    const parsedPageIndex = parseInt((query.page as any) || 0);
+    parsedPageIndex !== NaN && page !== parsedPageIndex;
+    setPage((parsedPageIndex >= 0 && parsedPageIndex) || 0);
+  }, []);
 
   const [isLoadingThunks, setIsLoadingThunks] = useState(false);
-  const queryResult = useGetPaginatedPokemonsListQuery({
+  const { isLoading, data } = useGetPaginatedPokemonsListQuery({
     page,
     perPage,
   }) as {
@@ -75,10 +87,6 @@ export default function Home() {
     isLoading: boolean;
     error?: any;
   };
-  const { isLoading, error } = queryResult;
-  console.log("slb", queryResult);
-  //@ts-ignore
-  const data = queryResult?.currentData || queryResult.data;
   useEffect(() => {
     const awaitQueries = async () => {
       setIsLoadingThunks(true);
@@ -90,11 +98,10 @@ export default function Home() {
           resolve();
         }, (Math.random() * (8 - 3) + 3) * 100)
       );
-
-      window.history.pushState("", "", `?page=${page}`);
+      router.replace(`/`, `/?page=${page}`);
     };
     awaitQueries();
-  }, [page, router]);
+  }, [page]);
   const perPageOptions = [perPage];
   return (
     <>

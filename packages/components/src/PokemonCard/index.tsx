@@ -24,9 +24,12 @@ const CardStyles = css`
   }
 `;
 
-const PokemonCard: FC<{ name: string }> = ({ name }) => {
+const PokemonCard: FC<{ name: string; onClick: () => void }> = ({
+  name,
+  onClick,
+}) => {
   return (
-    <div css={CardStyles}>
+    <div css={CardStyles} onClick={onClick}>
       <h3>{name}</h3>
     </div>
   );
