@@ -1,6 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 import { HYDRATE } from "next-redux-wrapper";
+import { NamedAPIResourceList, Pokemon } from "../models";
 
 export const pokemonApi = createApi({
   baseQuery: fetchBaseQuery({
@@ -13,26 +14,17 @@ export const pokemonApi = createApi({
   },
   tagTypes: [],
   endpoints: (endpointBuilder) => ({
-    getPokemonByName: endpointBuilder.query({
+    getPokemonByName: endpointBuilder.query<Pokemon, string>({
       query: (name) => `pokemon/${name}`,
     }),
     getPaginatedPokemonsList: endpointBuilder.query<
-      {
-        results: Array<{ name: string }>;
-        count: number;
-      },
+      NamedAPIResourceList,
       { page: number; perPage: number }
     >({
       query: ({ page, perPage }) =>
         `pokemon/?offset=${page * perPage}&limit=${page * perPage + perPage}`,
     }),
-    getAllPokemonsList: endpointBuilder.query<
-      {
-        results: Array<{ name: string }>;
-        count: number;
-      },
-      void
-    >({
+    getAllPokemonsList: endpointBuilder.query<NamedAPIResourceList, void>({
       query: () => `pokemon/?offset=0&limit=10000`,
     }),
   }),
