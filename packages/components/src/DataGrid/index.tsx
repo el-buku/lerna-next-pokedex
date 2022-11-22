@@ -4,7 +4,6 @@ import {
   GridColumns,
   DataGridProps as MuiGridProps,
 } from "@mui/x-data-grid";
-import React from "react";
 
 export type DataGridProps = {
   isLoading: boolean;
@@ -17,6 +16,20 @@ export type DataGridProps = {
   onPageChange: (page: number, details: GridCallbackDetails<any>) => void;
   onPageSizeChange: (pageSize: number) => void;
   remainingProps: Partial<MuiGridProps>;
+};
+
+export const InnerGridStyles = {
+  "& .MuiDataGrid-columnHeaders": { display: "none" },
+  "& .MuiDataGrid-virtualScrollerContent": { height: "auto!important" },
+  "& .MuiDataGrid-virtualScrollerRenderZone": {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    width: "100vw",
+    position: "relative",
+    marginTop: 0,
+    margin: "auto",
+    "& div": { flex: "1 0 175px" },
+  },
 };
 
 const CustomDataGrid = ({
@@ -34,7 +47,6 @@ const CustomDataGrid = ({
   return (
     <DataGrid
       density="compact"
-      rowHeight={50}
       pagination
       paginationMode="server"
       loading={isLoading}
@@ -46,6 +58,7 @@ const CustomDataGrid = ({
       rowsPerPageOptions={rowsPerPageOptions}
       onPageChange={onPageChange}
       onPageSizeChange={onPageSizeChange}
+      onRowClick={() => console.log("pula")}
       {...remainingProps}
     />
   );

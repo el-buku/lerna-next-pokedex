@@ -1,5 +1,3 @@
-import React from "react";
-
 export const FONT_H1 = "Press Start 2P";
 export const FONT_H3 = "VT323";
 

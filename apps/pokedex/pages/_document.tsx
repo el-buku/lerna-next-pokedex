@@ -7,12 +7,7 @@ import Document, {
   DocumentContext,
 } from "next/document";
 import { default as createEmotionServer } from "@emotion/server/create-instance";
-import {
-  theme,
-  createEmotionCache,
-  FontRefs,
-  GlobalStyles,
-} from "pokedex-components";
+import { createEmotionCache, FontRefs, GlobalStyles } from "pokedex-components";
 
 // See https://github.com/mui/material-ui/blob/master/examples/nextjs-with-typescript/pages/_document.tsx
 export default class AppDocument extends Document {
@@ -56,7 +51,6 @@ export default class AppDocument extends Document {
         <Head>
           <FontRefs />
           <link rel="icon" href="/pokeball.ico" />
-          <meta name="theme-color" content={theme.palette.primary.main} />
           <meta name="emotion-insertion-point" content="" />
           <GlobalStyles />
           {(this.props as any).emotionStyleTags}

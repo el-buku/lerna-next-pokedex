@@ -1,6 +1,15 @@
+/** @jsxImportSource @emotion/react */
+
+import { css, jsx } from "@emotion/react";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { Header, DataGrid } from "pokedex-components";
+import {
+  Header,
+  DataGrid,
+  Styles,
+  InnerGridStyles,
+  PokemonCard,
+} from "pokedex-components";
 import {
   wrapper,
   getPaginatedPokemonsList,
@@ -16,6 +25,18 @@ const getOffsetParams = (page: any, perPage: any) => ({
       ((parseInt(perPage) < 100 && parseInt(perPage)) || 100)) ||
     25,
 });
+
+const GridContainer = css`
+  ${Styles.FullHeight}
+  ${Styles.MarginAuto}
+`;
+
+const PokemonCardRow = (rowData: any) => {
+  const {
+    row: { name },
+  } = rowData;
+  return <PokemonCard name={name}></PokemonCard>;
+};
 
 export default function Home() {
   const { query } = useRouter();
@@ -43,12 +64,7 @@ export default function Home() {
         <title>Next Pokedex</title>
       </Head>
       <Header />
-      <div
-        style={{
-          height: "100%",
-          margin: "auto",
-        }}
-      >
+      <div css={GridContainer}>
         <DataGrid
           {...{
             isLoading,
@@ -64,6 +80,9 @@ export default function Home() {
             onPageSizeChange: (pageSize) => {},
             remainingProps: {
               getRowId: (row: any) => row.name,
+              sx: InnerGridStyles,
+              disableVirtualization: true,
+              components: { Row: PokemonCardRow },
             },
           }}
         />

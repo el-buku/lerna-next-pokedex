@@ -1,10 +1,7 @@
-import React from "react";
 import { css, Global } from "@emotion/react";
 import { FONT_H1, FONT_H3 } from "./fonts";
 
 export function GlobalStyles() {
-  //   const theme = useTheme();
-
   return (
     <Global
       styles={css`

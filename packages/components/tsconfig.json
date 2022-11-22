@@ -6,7 +6,7 @@
     "target": "es5",
     "lib": ["es6", "dom"],
     "sourceMap": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "skipLibCheck": true,
     "moduleResolution": "node",
     "rootDir": "src",
@@ -21,7 +21,8 @@
     "declaration": true,
     "declarationMap": true,
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "jsxImportSource": "@emotion/react"
   },
   "exclude": ["lib", "node_modules"]
 }
