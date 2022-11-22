@@ -24,7 +24,6 @@ export function GlobalStyles() {
 
         main {
           height: 100vh;
-          overflow-y: auto;
         }
 
         h1 {

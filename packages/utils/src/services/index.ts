@@ -22,7 +22,7 @@ export const pokemonApi = createApi({
       { page: number; perPage: number }
     >({
       query: ({ page, perPage }) =>
-        `pokemon/?offset=${page * perPage}&limit=${page * perPage + perPage}`,
+        `pokemon/?offset=${page * perPage}&limit=${perPage}`,
     }),
     getAllPokemonsList: endpointBuilder.query<NamedAPIResourceList, void>({
       query: () => `pokemon/?offset=0&limit=10000`,

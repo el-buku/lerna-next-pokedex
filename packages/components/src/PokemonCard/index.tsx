@@ -19,7 +19,7 @@ const CardStyles = css`
   box-shadow: ${theme.colors.shadow};
   border-radius: 7px;
   &:hover {
-    transform: scale(1.1);
+    transform: scale(1.07);
     border-color: #e73827;
   }
 `;
