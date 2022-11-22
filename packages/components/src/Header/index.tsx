@@ -1,6 +1,7 @@
 import { css } from "@emotion/react";
 import { theme } from "../theme";
 import { PaddingTop, PaddingBottom, TextCenter } from "../styles/base";
+import { CircleButtonsOverlay, CornerPolyLine } from "../Atoms";
 
 const HeaderStyles = css`
   ${TextCenter}
@@ -15,6 +16,8 @@ const HeaderStyles = css`
 
 const Header = () => (
   <div css={HeaderStyles}>
+    <CircleButtonsOverlay />
+    <CornerPolyLine />
     <h1 style={{ fontSize: "1.7em" }}>Lerna Redux SSR </h1>
     <h1 style={{ fontSize: "4em" }}>Pokedex</h1>
   </div>
