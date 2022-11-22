@@ -1,4 +1,9 @@
-import { DataGrid, GridCallbackDetails, GridColumns } from "@mui/x-data-grid";
+import {
+  DataGrid,
+  GridCallbackDetails,
+  GridColumns,
+  DataGridProps as MuiGridProps,
+} from "@mui/x-data-grid";
 import React from "react";
 
 export type DataGridProps = {
@@ -11,7 +16,7 @@ export type DataGridProps = {
   rowsPerPageOptions: number[];
   onPageChange: (page: number, details: GridCallbackDetails<any>) => void;
   onPageSizeChange: (pageSize: number) => void;
-  rest: any;
+  remainingProps: Partial<MuiGridProps>;
 };
 
 const CustomDataGrid = ({
@@ -24,12 +29,11 @@ const CustomDataGrid = ({
   rowsPerPageOptions,
   onPageChange,
   onPageSizeChange,
-  rest,
+  remainingProps,
 }: DataGridProps) => {
   return (
     <DataGrid
       density="compact"
-      autoHeight
       rowHeight={50}
       pagination
       paginationMode="server"
@@ -42,7 +46,7 @@ const CustomDataGrid = ({
       rowsPerPageOptions={rowsPerPageOptions}
       onPageChange={onPageChange}
       onPageSizeChange={onPageSizeChange}
-      {...rest}
+      {...remainingProps}
     />
   );
 };

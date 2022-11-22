@@ -52,7 +52,7 @@ function DataGridStory() {
         onPageChange={(newPage) => setPage(newPage)}
         onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
         columns={columns}
-        rest={{ initialState }}
+        remainingProps={{ initialState }}
       />
     </div>
   );
