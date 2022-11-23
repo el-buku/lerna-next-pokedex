@@ -14,7 +14,7 @@ import { AbsoluteCenter, MarginAuto } from "../../styles/base";
 import { LoadingLayout } from "..";
 
 const GridContainer = css`
-  height: 100%;
+  height: calc(100% - 350px);
   ${MarginAuto}
 `;
 
