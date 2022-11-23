@@ -70,7 +70,10 @@ const PokemonSpriteDisplay: FC<{ sprites: string[]; name: string }> = ({
             />
             <Image
               {...{
-                src: sprites[active % sprites.length],
+                src: new URL(sprites[active % sprites.length]).pathname,
+                loader: function imgLoader({ src }) {
+                  return `https://raw.githubusercontent.com/${src}`;
+                },
                 alt: name,
                 width: 224,
                 height: 224,
