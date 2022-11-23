@@ -5,6 +5,7 @@ import { theme } from "../../theme";
 import { TextCenter, FullHeight, FullWidth } from "../../styles/base";
 import { CircleButtonsOverlay, CornerPolyLine } from "../../Atoms";
 import { LoadingLayout } from "../";
+import { PokemonSpriteDisplay } from "../../Organisms";
 
 const OverlayStyles = css`
   ${FullHeight}
@@ -33,12 +34,26 @@ const ErrorLayout = () => (
   </>
 );
 
-const PokemonDetails: FC<{ pokemon?: Pokemon }> = ({ pokemon }) => {
+const PokemonDetails: FC<{ pokemon: Pokemon }> = ({ pokemon }) => {
+  const sprites = Object.values(pokemon.sprites).filter(
+    (e) => !!e && typeof e === "string"
+  );
+  sprites.reverse();
   return (
     <>
       <h1 css={MobileShift} style={{ fontSize: "4em" }}>
-        {capitalize(pokemon?.name || "")}
+        {capitalize(pokemon.name || "")}
       </h1>
+      <div
+        css={css`
+          display: flex;
+          flex-direction: column;
+        `}
+      >
+        <PokemonSpriteDisplay name={pokemon.name} sprites={sprites} />
+        <PokemonSpriteDisplay name={pokemon.name} sprites={sprites} />
+        <PokemonSpriteDisplay name={pokemon.name} sprites={sprites} />
+      </div>
     </>
   );
 };

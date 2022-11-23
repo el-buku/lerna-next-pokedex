@@ -8,6 +8,7 @@ import {
 } from "../styles/base";
 import { theme } from "../theme";
 import { FC } from "react";
+import { SerializedStyles } from "@mui/styled-engine";
 
 const CardStyles = css`
   ${TextCenter}
@@ -30,9 +31,16 @@ const CardStyles = css`
 const PokemonCard: FC<{
   Component: () => JSX.Element;
   onClick: () => void;
-}> = ({ Component, onClick }) => {
+  styles?: SerializedStyles;
+}> = ({ Component, onClick, styles }) => {
   return (
-    <div css={CardStyles} onClick={onClick}>
+    <div
+      css={css`
+        ${CardStyles}
+        ${styles}
+      `}
+      onClick={onClick}
+    >
       {Component()}
     </div>
   );

@@ -1,4 +1,4 @@
-export { default as PokemonCard } from "./PokemonCard";
+export { default as PokemonSpriteDisplay } from "./PokemonSpriteDisplay";
 export { default as Header } from "./Header";
 export { default as GridPagination } from "./Pagination";
 export {

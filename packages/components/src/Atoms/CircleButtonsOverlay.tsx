@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { css } from "@emotion/react";
+import { css, SerializedStyles } from "@emotion/react";
 import {
   AbsoluteCenter,
   Flex,
@@ -18,18 +18,20 @@ const CircleContainer = (color: string, size: number) => css`
   background: ${color};
 `;
 
-const CircleButton: FC<{
+export const CircleButton: FC<{
   borderColor: string;
   backgroundColor: string;
   lightColor: string;
   size: number;
-}> = ({ borderColor, backgroundColor, lightColor, size }) => {
+  containerStyles?: SerializedStyles;
+}> = ({ borderColor, backgroundColor, lightColor, size, containerStyles }) => {
   return (
     <div
       css={css`
         ${Relative}
         height:${size}px;
         width: ${size}px;
+        ${containerStyles}
       `}
     >
       <div css={CircleContainer(borderColor, size)}>
