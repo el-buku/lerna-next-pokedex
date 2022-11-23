@@ -29,6 +29,7 @@ export const InnerGridStyles = {
   "& .MuiDataGrid-columnHeaders": { display: "none" },
   "& .MuiDataGrid-virtualScrollerContent": { height: "auto!important" },
   "& .MuiDataGrid-virtualScroller": { margin: "0px!important" },
+  "& .MuiDataGrid-footerContainer": { position: "absolute" },
   "& .MuiDataGrid-virtualScrollerRenderZone": {
     flexDirection: "row",
     flexWrap: "wrap",
