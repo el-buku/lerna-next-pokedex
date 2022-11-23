@@ -5,8 +5,8 @@ import {
   PaddingTop,
   Pointer,
   TextCenter,
-} from "../../styles/base";
-import { theme } from "../../theme";
+} from "../styles/base";
+import { theme } from "../theme";
 import { FC } from "react";
 
 const CardStyles = css`
@@ -18,20 +18,22 @@ const CardStyles = css`
   background: ${theme.colors.background};
   border: 1.5px solid ${theme.colors.inverse};
   box-shadow: ${theme.colors.shadow};
-  border-radius: 7px;
+  border-bottom-left-radius: 21px;
+  height: 175px;
+  position: relative;
   &:hover {
     transform: scale(1.07);
     border-color: #e73827;
   }
 `;
 
-const PokemonCard: FC<{ name: string; onClick: () => void }> = ({
-  name,
-  onClick,
-}) => {
+const PokemonCard: FC<{
+  Component: () => JSX.Element;
+  onClick: () => void;
+}> = ({ Component, onClick }) => {
   return (
     <div css={CardStyles} onClick={onClick}>
-      <h3>{name}</h3>
+      {Component()}
     </div>
   );
 };

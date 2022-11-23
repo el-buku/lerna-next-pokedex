@@ -2,15 +2,15 @@ import { FC, useEffect } from "react";
 import { css } from "@emotion/react";
 import { useRouter } from "next/router";
 import { capitalize } from "pokedex-utils";
+import { PokemonCard } from "../../Atoms";
 import {
   DataGrid,
   DataGridControlProps,
   GridPagination,
   Header,
   InnerGridStyles,
-  PokemonCard,
 } from "../../Organisms";
-import { MarginAuto } from "../../styles/base";
+import { AbsoluteCenter, MarginAuto } from "../../styles/base";
 import { LoadingLayout } from "..";
 
 const GridContainer = css`
@@ -31,7 +31,7 @@ const ControlledPokemonRow = (rowData: any) => {
 
   return (
     <PokemonCard
-      name={capitalize(name)}
+      Component={() => <h3 css={AbsoluteCenter}>{capitalize(name)}</h3>}
       onClick={() => router.push(pokemonPath)}
     ></PokemonCard>
   );

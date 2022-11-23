@@ -18,8 +18,7 @@ export default function LandingPage() {
   const [page, setPage] = useState(0);
 
   useEffect(() => {
-    const parsedPageIndex = parseInt((query.page as any) || 0);
-    parsedPageIndex !== NaN && page !== parsedPageIndex;
+    const parsedPageIndex = parseInt((query.page as string) || "0");
     setPage((parsedPageIndex >= 0 && parsedPageIndex) || 0);
   }, []);
 

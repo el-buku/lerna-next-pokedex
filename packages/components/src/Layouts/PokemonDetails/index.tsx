@@ -50,12 +50,12 @@ const PokemonDetailsOverlay: FC<{
 }> = ({ data, isLoading, error }) => {
   const [pokemon, setPokemon] = useState<Pokemon>();
   useEffect(() => data && setPokemon(data), [data]);
-  console.log(error);
+  console.log(error, isLoading, !!data);
   return (
     <div css={OverlayStyles}>
       <CircleButtonsOverlay />
       <CornerPolyLine />
-      {isLoading && <LoadingLayout />}
+      {(isLoading || !data) && <LoadingLayout />}
       {error && <ErrorLayout />}
       {pokemon ? <PokemonDetails {...{ pokemon }} /> : null}
     </div>
