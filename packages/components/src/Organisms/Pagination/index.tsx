@@ -10,9 +10,9 @@ import {
   FullWidth,
   MarginRight,
   MarginLeft,
-} from "../styles/base";
+} from "../../styles/base";
 import { css } from "@emotion/react";
-import { theme } from "../theme";
+import { theme } from "../../theme";
 
 const PaginationContainer = css`
   ${FlexCenter}

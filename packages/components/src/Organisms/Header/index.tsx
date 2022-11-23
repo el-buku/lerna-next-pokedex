@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
-import { theme } from "../theme";
-import { PaddingTop, PaddingBottom, TextCenter } from "../styles/base";
-import { CircleButtonsOverlay, CornerPolyLine } from "../Atoms";
+import { theme } from "../../theme";
+import { PaddingTop, PaddingBottom, TextCenter } from "../../styles/base";
+import { CircleButtonsOverlay, CornerPolyLine } from "../../Atoms";
 
 const HeaderStyles = css`
   ${TextCenter}
@@ -11,7 +11,7 @@ const HeaderStyles = css`
   background: ${theme.colors.header};
   color: ${theme.colors.background};
   ${PaddingTop(120)}
-  ${PaddingBottom(80)}
+  ${PaddingBottom(100)}
 `;
 
 const Header = () => (

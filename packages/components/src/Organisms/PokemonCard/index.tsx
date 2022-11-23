@@ -5,8 +5,8 @@ import {
   PaddingTop,
   Pointer,
   TextCenter,
-} from "../styles/base";
-import { theme } from "../theme/";
+} from "../../styles/base";
+import { theme } from "../../theme";
 import { FC } from "react";
 
 const CardStyles = css`

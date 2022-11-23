@@ -15,7 +15,7 @@ function DataGridStory() {
   );
   const rowsPerPageOptions = [5, 25, 50];
   const [page, setPage] = React.useState(0);
-  const [pageSize, setPageSize] = React.useState(rowsPerPageOptions[0]);
+  const [pageSize, _setPageSize] = React.useState(rowsPerPageOptions[0]);
 
   const queryOptions = React.useMemo(
     () => ({
@@ -50,7 +50,6 @@ function DataGridStory() {
         page={page}
         pageSize={pageSize}
         onPageChange={(newPage) => setPage(newPage)}
-        onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
         columns={columns}
         remainingProps={{ initialState }}
       />

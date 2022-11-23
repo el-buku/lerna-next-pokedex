@@ -1,7 +1,8 @@
 import { theme } from "../theme/index";
+
 // kudos https://codepen.io/raubaca/pen/obaZmG
 
-export default function Spinner() {
+const Spinner = () => {
   return (
     <>
       <style>
@@ -71,4 +72,6 @@ export default function Spinner() {
       </div>
     </>
   );
-}
+};
+
+export default Spinner;

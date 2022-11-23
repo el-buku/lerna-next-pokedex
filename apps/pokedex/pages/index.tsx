@@ -1,92 +1,38 @@
-/** @jsxImportSource @emotion/react */
-
-import { css } from "@emotion/react";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import {
-  Header,
-  DataGrid,
-  Styles,
-  InnerGridStyles,
-  PokemonCard,
-  Spinner,
-  GridPagination,
-} from "pokedex-components";
-import { FullWidth, PaddingTop } from "pokedex-components/lib/styles/base";
+import { LandingLayout, DataGridControlProps } from "pokedex-components";
 import {
   wrapper,
   getPaginatedPokemonsList,
   pokemonApiUtil,
   useGetPaginatedPokemonsListQuery,
+  NamedAPIResourceList,
 } from "pokedex-utils";
 import { useEffect, useState } from "react";
 
-const GridContainer = css`
-  height: 66vh;
-  ${Styles.MarginAuto}
-`;
-
-const PokemonCardRow = (rowData: any) => {
-  const {
-    row: { name },
-  } = rowData;
-  const router = useRouter();
-  const pokemonPath = `/${name}`;
-  useEffect(() => {
-    router.prefetch(pokemonPath);
-  }, []);
-
-  return (
-    <PokemonCard
-      name={name}
-      onClick={() => router.push(pokemonPath)}
-    ></PokemonCard>
-  );
-};
-
-const LoadingOverlay = () => {
-  return (
-    <div
-      css={css`
-        ${FullWidth}
-        position:fixed;
-        height: 100vh;
-        background: #ffffffbf;
-        z-index: 1000;
-        top: 0;
-        padding-top: 45vh;
-      `}
-    >
-      <Spinner />
-    </div>
-  );
-};
-
-const PER_PAGE = 35;
+const perPage = 35;
 
 export default function Home() {
   const router = useRouter();
   const { query } = router;
   const [page, setPage] = useState(0);
-  const perPage = PER_PAGE;
+
   useEffect(() => {
     const parsedPageIndex = parseInt((query.page as any) || 0);
     parsedPageIndex !== NaN && page !== parsedPageIndex;
     setPage((parsedPageIndex >= 0 && parsedPageIndex) || 0);
   }, []);
 
-  const [isLoadingThunks, setIsLoadingThunks] = useState(false);
   const { isLoading, data } = useGetPaginatedPokemonsListQuery({
     page,
     perPage,
   }) as {
-    data?: {
-      results: Array<{ name: string }>;
-      count: number;
-    };
+    data?: NamedAPIResourceList;
     isLoading: boolean;
-    error?: any;
   };
+
+  const [isLoadingThunks, setIsLoadingThunks] = useState(false);
+
   useEffect(() => {
     const awaitQueries = async () => {
       setIsLoadingThunks(true);
@@ -102,40 +48,22 @@ export default function Home() {
     };
     awaitQueries();
   }, [page]);
-  const perPageOptions = [perPage];
+
+  const dataGridControlProps: DataGridControlProps = {
+    isLoading: isLoading || isLoadingThunks,
+    page: page,
+    pageSize: perPage,
+    totalRows: data?.count || 0,
+    rows: data?.results || [],
+    onPageChange: setPage,
+  };
+
   return (
     <>
       <Head>
         <title>Next Pokedex</title>
       </Head>
-      <Header />
-      <div css={GridContainer}>
-        <DataGrid
-          {...{
-            isLoading: isLoading || isLoadingThunks,
-            page,
-            pageSize: perPage,
-            totalRows: data?.count || 0,
-            rows: data?.results || [],
-            columns: [
-              { field: "name", headerName: "Pokemon Name", width: 300 },
-            ],
-            rowsPerPageOptions: perPageOptions,
-            onPageChange: setPage,
-            onPageSizeChange: (pageSize) => {},
-            remainingProps: {
-              getRowId: (row: any) => row.name,
-              sx: InnerGridStyles,
-              disableVirtualization: true,
-              components: {
-                Row: PokemonCardRow,
-                LoadingOverlay: LoadingOverlay,
-                Pagination: GridPagination,
-              },
-            },
-          }}
-        />
-      </div>
+      <LandingLayout {...{ dataGridControlProps }} />
     </>
   );
 }
@@ -149,7 +77,7 @@ export const getServerSideProps = wrapper.getServerSideProps(
       page:
         (parsedPageIndex !== NaN && parsedPageIndex >= 0 && parsedPageIndex) ||
         0,
-      perPage: PER_PAGE,
+      perPage,
     };
     store.dispatch(getPaginatedPokemonsList.initiate(offsetParams));
     await pokemonApiUtil.getRunningQueriesThunk();
