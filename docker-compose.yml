@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  pokedex:
+    container_name: POKEDEX
+    image: pokedex
+    restart: always
+    command: ["yarn", "start:pokedex"]
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+      - "5001:5001"
+      - "5002:5002"

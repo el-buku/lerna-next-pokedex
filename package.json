@@ -11,6 +11,7 @@
     "test": "yarn jest --coverage",
     "dev": "lerna run build --scope=pokedex-components --scope=pokedex-utils && lerna run dev --parallel --include-dependencies",
     "clean":"rimraf node_modules && lerna run clean",
+    "bootstrap":"lerna bootstrap && lerna link",
     "start:pokedex": "lerna run start --scope pokedex",
     "start:storybook": "lerna run start --scope storybook",
     "dev:pokedex": "lerna run dev --scope pokedex"
