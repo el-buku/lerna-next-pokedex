@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
 
 const perPage = 35;
 
-export default function Home() {
+export default function LandingPage() {
   const router = useRouter();
   const { query } = router;
   const [page, setPage] = useState(0);
@@ -47,6 +47,7 @@ export default function Home() {
       router.replace(`/`, `/?page=${page}`);
     };
     awaitQueries();
+    //eslint-disable-next-line
   }, [page]);
 
   const dataGridControlProps: DataGridControlProps = {

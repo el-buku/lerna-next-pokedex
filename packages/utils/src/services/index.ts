@@ -43,3 +43,5 @@ export const {
   getPaginatedPokemonsList,
   getAllPokemonsList,
 } = pokemonApi.endpoints;
+
+export { skipToken as querySkipToken } from "@reduxjs/toolkit/query";
