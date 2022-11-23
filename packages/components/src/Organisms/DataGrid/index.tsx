@@ -66,7 +66,6 @@ const CustomDataGrid = ({
       rowsPerPageOptions={rowsPerPageOptions}
       onPageChange={onPageChange}
       onPageSizeChange={onPageSizeChange}
-      onRowClick={() => console.log("pula")}
       {...remainingProps}
     />
   );

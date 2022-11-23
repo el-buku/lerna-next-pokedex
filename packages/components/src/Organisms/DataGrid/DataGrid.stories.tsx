@@ -24,7 +24,7 @@ function DataGridStory() {
     }),
     [page, pageSize]
   );
-  console.log(page, pageSize);
+
   const { isLoading, data, pageInfo } = useQuery(queryOptions);
 
   // Some API clients return undefined while loading

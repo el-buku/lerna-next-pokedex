@@ -123,7 +123,7 @@ const PokemonDetails: FC<{ pokemon: Pokemon }> = ({ pokemon }) => {
       </div>
     </div>
   );
-  console.log(pokemon);
+
   const RightSideDetails = () => (
     <div
       css={css`
@@ -203,7 +203,7 @@ const PokemonDetailsOverlay: FC<{
 }> = ({ data, isLoading, error }) => {
   const [pokemon, setPokemon] = useState<Pokemon>();
   useEffect(() => data && setPokemon(data), [data]);
-  console.log(error, isLoading, !!data);
+
   return (
     <div css={OverlayStyles}>
       <CircleButtonsOverlay />

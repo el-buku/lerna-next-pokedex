@@ -25,7 +25,7 @@ export default function PokemonDetailsPage() {
     error?: any;
     isLoading: boolean;
   };
-  console.log("err", error);
+
   return (
     <PokemonDetailsLayout
       isLoading={isFallback || isLoading}

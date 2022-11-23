@@ -20,6 +20,7 @@ export default function LandingPage() {
   useEffect(() => {
     const parsedPageIndex = parseInt((query.page as string) || "0");
     setPage((parsedPageIndex >= 0 && parsedPageIndex) || 0);
+    //eslint-disable-next-line
   }, []);
 
   const { isLoading, data } = useGetPaginatedPokemonsListQuery({
@@ -74,9 +75,7 @@ export const getServerSideProps = wrapper.getServerSideProps(
     const parsedPageIndex = parseInt((query.page as any) || 0);
 
     const offsetParams = {
-      page:
-        (parsedPageIndex !== NaN && parsedPageIndex >= 0 && parsedPageIndex) ||
-        0,
+      page: (parsedPageIndex >= 0 && parsedPageIndex) || 0,
       perPage,
     };
     store.dispatch(getPaginatedPokemonsList.initiate(offsetParams));
