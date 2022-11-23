@@ -5,3 +5,4 @@ export {
   CircleButton,
 } from "./CircleButtonsOverlay";
 export { default as PokemonCard } from "./PokemonCard";
+export * from "./MiscButtons";

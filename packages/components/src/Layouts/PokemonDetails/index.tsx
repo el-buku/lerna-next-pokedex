@@ -3,7 +3,12 @@ import { css } from "@emotion/react";
 import { capitalize, Pokemon } from "pokedex-utils";
 import { theme } from "../../theme";
 import { TextCenter, FullHeight, FullWidth } from "../../styles/base";
-import { CircleButtonsOverlay, CornerPolyLine } from "../../Atoms";
+import {
+  CircleButton,
+  CircleButtonsOverlay,
+  CornerPolyLine,
+  CrossButton,
+} from "../../Atoms";
 import { LoadingLayout } from "../";
 import { PokemonSpriteDisplay } from "../../Organisms";
 
@@ -48,11 +53,46 @@ const PokemonDetails: FC<{ pokemon: Pokemon }> = ({ pokemon }) => {
         css={css`
           display: flex;
           flex-direction: column;
+          width: 300px;
         `}
       >
         <PokemonSpriteDisplay name={pokemon.name} sprites={sprites} />
-        <PokemonSpriteDisplay name={pokemon.name} sprites={sprites} />
-        <PokemonSpriteDisplay name={pokemon.name} sprites={sprites} />
+        <div
+          css={css`
+            display: flex;
+            flex-direction: column;
+          `}
+        >
+          <CrossButton />
+          <div
+            css={css`
+              display: flex;
+              width: 150px;
+              justify-content: space-evenly;
+              align-items: center;
+              margin-top: 45px;
+            `}
+          >
+            <CircleButton
+              borderColor="#ffffff63"
+              backgroundColor="#ff0000"
+              lightColor="#fe98cb"
+              size={30}
+            />
+            <CircleButton
+              borderColor="#ffffff63"
+              backgroundColor="#ff0000"
+              lightColor="#fe98cb"
+              size={16}
+            />
+            <CircleButton
+              borderColor="#ffffff63"
+              backgroundColor="#ff0000"
+              lightColor="#fe98cb"
+              size={16}
+            />
+          </div>
+        </div>
       </div>
     </>
   );

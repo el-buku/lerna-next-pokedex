@@ -2,7 +2,7 @@ import Image from "next/image";
 // import { useState } from "react";
 import { FC, useState } from "react";
 import { css } from "@emotion/react";
-import { CircleButton, PokemonCard } from "../../Atoms";
+import { CircleButton, HamburgerButton, PokemonCard } from "../../Atoms";
 import { theme } from "../../theme";
 import { Relative } from "../../styles/base";
 
@@ -59,6 +59,13 @@ const PokemonSpriteDisplay: FC<{ sprites: string[]; name: string }> = ({
                 top: 244px;
                 left: 56%;
                 z-index: 100;
+              `}
+            />
+            <HamburgerButton
+              containerStyles={css`
+                position: absolute;
+                top: 18%;
+                left: 5px;
               `}
             />
             <Image
