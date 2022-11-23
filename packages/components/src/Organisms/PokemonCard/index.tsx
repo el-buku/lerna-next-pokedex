@@ -15,6 +15,7 @@ const CardStyles = css`
   ${PaddingTop(15)}
   ${PaddingBottom(15)}
   ${MarginAll(7)}
+  background: ${theme.colors.background};
   border: 1.5px solid ${theme.colors.inverse};
   box-shadow: ${theme.colors.shadow};
   border-radius: 7px;

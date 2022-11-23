@@ -5,8 +5,10 @@ import {
   Flex,
   MarginLeft,
   MarginRight,
+  Pointer,
   Relative,
 } from "../styles/base";
+import { useRouter } from "next/router";
 
 const CircleContainer = (color: string, size: number) => css`
   ${AbsoluteCenter}
@@ -45,14 +47,18 @@ const CircleButton: FC<{
 };
 
 export default function CirclesOverlay() {
+  const router = useRouter();
   return (
     <div
       css={css`
+        ${Pointer}
         display: flex;
         position: absolute;
         top: 10px;
         left: 15px;
+        z-index: 2000;
       `}
+      onClick={() => router.push("/")}
     >
       <CircleButton
         borderColor="#dce1e75c"

@@ -26,6 +26,7 @@ const ControlledPokemonRow = (rowData: any) => {
   const pokemonPath = `/${name}`;
   useEffect(() => {
     router.prefetch(pokemonPath);
+    //eslint-disable-next-line
   }, []);
 
   return (

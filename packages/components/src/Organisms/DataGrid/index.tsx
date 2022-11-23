@@ -17,6 +17,10 @@ export type DataGridControlProps = {
 export type DataGridProps = DataGridControlProps & {
   rowsPerPageOptions: number[];
   onPageChange: (page: number, details: GridCallbackDetails<any>) => void;
+  onPageSizeChange?: (
+    pageSize: number,
+    details: GridCallbackDetails<any>
+  ) => void;
   columns: GridColumns;
   remainingProps: Partial<MuiGridProps>;
 };
@@ -45,6 +49,7 @@ const CustomDataGrid = ({
   columns,
   rowsPerPageOptions,
   onPageChange,
+  onPageSizeChange,
   remainingProps,
 }: DataGridProps) => {
   return (
@@ -60,6 +65,7 @@ const CustomDataGrid = ({
       columns={columns}
       rowsPerPageOptions={rowsPerPageOptions}
       onPageChange={onPageChange}
+      onPageSizeChange={onPageSizeChange}
       onRowClick={() => console.log("pula")}
       {...remainingProps}
     />

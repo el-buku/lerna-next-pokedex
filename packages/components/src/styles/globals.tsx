@@ -1,5 +1,6 @@
 import { css, Global } from "@emotion/react";
 import { FONT_H1, FONT_H3 } from "./fonts";
+import { theme } from "../theme";
 
 export function GlobalStyles() {
   return (
@@ -9,6 +10,7 @@ export function GlobalStyles() {
         body {
           overflow: hidden;
           font-family: "${FONT_H3}";
+          background: ${theme.colors.backgroundGradient};
         }
 
         * {
