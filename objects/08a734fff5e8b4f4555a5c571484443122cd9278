@@ -1,0 +1,12 @@
+[module "2395e64a-9ec3-3ad4-84ad-fe0ccfa9f70b"]
+	conflict = request-pull
+	path = apps/pokedex
+	pull = merge subtree
+	pull = squash always
+	ref = if refs/heads/main sync refs/heads/master
+	url = agnostic://gh/601009022
+[map "20e6bb62-ea69-37d0-9ef8-f07d1384f859"]
+	object = e32bcff06967025ed73593ce20e087ff2fc4fddd
+	path = apps/pokedex
+	stage = sync
+	type = extract module

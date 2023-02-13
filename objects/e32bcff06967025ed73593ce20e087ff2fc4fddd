@@ -1,0 +1,4 @@
+[map "16f28f52-89b8-30fd-8059-eb88a2d7e82f"]
+	object = 08a734fff5e8b4f4555a5c571484443122cd9278
+	path = apps/pokedex
+	type = expand module
